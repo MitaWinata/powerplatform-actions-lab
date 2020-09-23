@@ -30,7 +30,7 @@ jobs:
       with:
         environment-url: 'https://orgf5794925.crm4.dynamics.com/'
         user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.password }}
+        password-secret: ${{ secrets.devpass }}
         solution-file: out/solutions/ALMLab.zip
         force-overwrite: true
         publish-changes: true
@@ -40,7 +40,7 @@ jobs:
       with:
         environment-url: 'https://orgf5794925.crm4.dynamics.com/'
         user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.password }}
+        password-secret: ${{ secrets.devpass }}
         solution-name: ALMLab
         managed: true
         solution-output-file: out/ship/ALMLab.zip
@@ -75,7 +75,7 @@ jobs:
       with:
         environment-url: 'https://weppgov.crm4.dynamics.com/'
         user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.password }}
+        password-secret: ${{ secrets.devpass }}
         solution-file: out/release/ALMLab.zip
         force-overwrite: true
         publish-changes: true
