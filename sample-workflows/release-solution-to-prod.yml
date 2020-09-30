@@ -29,9 +29,9 @@ jobs:
     - name: Import solution as unmanaged to build env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://orgf5794925.crm4.dynamics.com/'
-        user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.devpass }}
+        environment-url: '<BUILDENVIRONMENTURL>'
+        user-name: '<USERNAME>'
+        password-secret: ${{ secrets.password }}
         solution-file: out/solutions/ALMLab.zip
         force-overwrite: true
         publish-changes: true
@@ -39,9 +39,9 @@ jobs:
     - name: Export solution as managed
       uses: microsoft/powerplatform-actions/export-solution@v0
       with:
-        environment-url: 'https://orgf5794925.crm4.dynamics.com/'
-        user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.devpass }}
+        environment-url: '<BUILDENVIRONMENTURL>'
+        user-name: '<USERNAME>'
+        password-secret: ${{ secrets.password }}
         solution-name: ALMLab
         managed: true
         solution-output-file: out/ship/ALMLab.zip
@@ -69,12 +69,14 @@ jobs:
         name: managedSolutions
         path: out/release/
 
+    - run: get-childitem .\out\release\
+
     - name: Import solution to prod env
       uses: microsoft/powerplatform-actions/import-solution@v0
       with:
-        environment-url: 'https://weppgov.crm4.dynamics.com/'
-        user-name: 'devops@weppgov.onmicrosoft.com'
-        password-secret: ${{ secrets.devpass }}
+        environment-url: '<PRODUCTIONENVIRONMENTURL>'
+        user-name: '<USERNAME>'
+        password-secret: ${{ secrets.password }}
         solution-file: out/release/ALMLab.zip
         force-overwrite: true
         publish-changes: true
